@@ -1,0 +1,50 @@
+{
+  "name": "TestDataPipeline",
+  "description": "A sample schema for user data with various types",
+  "fields": {
+    "user_id": {
+      "type": "uuid",
+      "required": true,
+      "description": "Unique user identifier"
+    },
+    "username": {
+      "type": "user_name",
+      "required": true,
+      "description": "Username"
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "description": "Email address",
+      "constraints": {
+         "domain": "example.com"
+      }
+    },
+    "birth_date": {
+      "type": "date_of_birth",
+      "required": false,
+      "description": "User's date of birth",
+      "constraints": {
+        "minimum_age": 18,
+        "maximum_age": 65
+      }
+    },
+    "status": {
+      "type": "choice",
+      "required": true,
+      "description": "User's status (categorical)",
+      "constraints": {
+        "choices": ["active", "inactive", "suspended"]
+      }
+    },
+     "login_count": {
+       "type": "integer",
+       "required": true,
+       "description": "Number of logins",
+       "constraints": {
+         "min_value": 0,
+         "max_value": 1000
+       }
+     }
+}
+}
